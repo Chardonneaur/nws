@@ -1,1 +1,33 @@
-Hey you !!!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matomo Event Tracking</title>
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//your-matomo-url/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', 'YOUR_SITE_ID']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+</head>
+<body>
+    <h1>Welcome to Your Site</h1>
+    <button id="track-event">Track Event</button>
+
+    <script type="text/javascript">
+        document.getElementById('track-event').addEventListener('click', function() {
+            _paq.push(['trackEvent', 'Category', 'Action', 'Name', 'Value']);
+        });
+    </script>
+</body>
+</html>
